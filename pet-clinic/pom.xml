@@ -24,7 +24,17 @@
         <java.version>11</java.version>
     </properties>
 
+    <scm>
+        <developerConnection>scm:git:https://github.com/CalvinPierce/Comp3095_Lab2.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>2.5.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -39,6 +49,14 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
