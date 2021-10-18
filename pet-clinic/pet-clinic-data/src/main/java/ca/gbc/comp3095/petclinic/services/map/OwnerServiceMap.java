@@ -1,11 +1,11 @@
 package ca.gbc.comp3095.petclinic.services.map;
 
 import ca.gbc.comp3095.petclinic.model.Owner;
-import ca.gbc.comp3095.petclinic.services.CrudService;
+import ca.gbc.comp3095.petclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -30,5 +30,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastname) {
+        return null;
     }
 }
