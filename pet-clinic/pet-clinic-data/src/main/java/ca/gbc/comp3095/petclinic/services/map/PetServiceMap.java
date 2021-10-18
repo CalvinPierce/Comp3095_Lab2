@@ -2,9 +2,11 @@ package ca.gbc.comp3095.petclinic.services.map;
 
 import ca.gbc.comp3095.petclinic.model.Pet;
 import ca.gbc.comp3095.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
