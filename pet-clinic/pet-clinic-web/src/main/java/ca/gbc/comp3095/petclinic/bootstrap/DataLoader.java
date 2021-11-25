@@ -8,6 +8,9 @@ import ca.gbc.comp3095.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -75,7 +78,18 @@ public class DataLoader implements CommandLineRunner {
         owner2.setTelephone("098-765-4321");
         owner2.setCity("New York");
 
+        Pet petersPet = new Pet();
+        petersPet.setName("Fluffy");
+        petersPet.setPetType(catPetType);
+        petersPet.setOwner(owner2);
+        owner2.getPets().add(petersPet);
+
         ownerService.save(owner2);
+
+        Owner owner3 = Owner.builder().id(3L).address("123 Some Street").city("Toronto")
+                        .lastname("Bruce").lastname("Banner").telephone("416-123-4567").pets(new HashSet<>()).build();
+
+        ownerService.save(owner3);
 
         System.out.println("Loaded Owners...");
 
@@ -92,6 +106,11 @@ public class DataLoader implements CommandLineRunner {
         vet2.getSpecialties().add(surgery);
 
         vetService.save(vet2);
+
+        Vet vet3 = Vet.builder().id(3L).firstName("John")
+                .lastName("Doe").specialties(new HashSet<>()).build();
+
+        vetService.save(vet3);
 
         System.out.println("Loaded Vets...");
     }

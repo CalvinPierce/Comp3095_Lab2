@@ -1,4 +1,4 @@
-package ca.gbc.comp3095.petclinic.repositories;
+package ca.gbc.comp3095.petclinic.model.repositories;
 
 import ca.gbc.comp3095.petclinic.model.Vet;
 import org.springframework.data.repository.CrudRepository;
